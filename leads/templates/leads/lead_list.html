@@ -23,6 +23,21 @@
             </div>
           </div>
         {% endfor %}
+    {% if inassigned_leads.exists %}
+    <h1>Unassigned Leads</h1>
+    <div class="flex flex-wrap -m-2">
+        {% for inassigned_lead in inassigned_leads %}
+          <div class="p-2 lg:w-1/3 md:w-1/2 w-full">
+            <div class="h-full flex items-center border-gray-200 border p-4 rounded-lg">
+              <img alt="team" class="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="http://img.wxcha.com/m00/dd/7c/556721cf984da39a748855c7d8eb1c0c.jpg?down">
+              <div class="flex-grow">
+                <h2 class="text-gray-900 title-font font-medium"><a href="{% url 'leads:lead-detail' lead.pk %}" style="color:Black; text-decoration:inherit;">{{lead.first_name}} {{lead.last_name}}</a></h2>
+                <p class="text-gray-500">Team Lead</p>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+    {% endif %}
     </div>
   </div>
 </section>
