@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+    <a href="{% url 'leads:lead-list' %}">back</a>
+    <h3>Are You Sure You Want To Delete?</h3>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input class="btn btn-warning" type="submit" value="Yes, I am sure" />
+    </form>
+{% endblock content %}
